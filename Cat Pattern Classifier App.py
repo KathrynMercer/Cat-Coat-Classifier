@@ -2,6 +2,10 @@ import gradio as gr
 from fastai.vision.all import *
 from huggingface_hub import from_pretrained_fastai
 
+import pathlib
+plt = platform.system()
+if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
+
 learn = from_pretrained_fastai(repo_id = "KathrynMercer/CatPatternClassifier")
 
 labels = learn.dls.vocab
