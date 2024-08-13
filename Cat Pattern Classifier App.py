@@ -1,7 +1,8 @@
 import gradio as gr
 from fastai.vision.all import *
+from huggingface_hub import from_pretrained_fastai
 
-learn = load_learner('export.pkl')
+learn = from_pretrained_fastai(repo_id = "KathrynMercer/CatPatternClassifier")
 
 labels = learn.dls.vocab
 def predict(img):
